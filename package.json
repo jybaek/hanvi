@@ -1,0 +1,25 @@
+{
+  "name": "hanvi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/speech": "^2.0.0",
+    "node-record-lpcm16": "^0.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jybaek/hanvi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jybaek/hanvi/issues"
+  },
+  "homepage": "https://github.com/jybaek/hanvi#readme"
+}
