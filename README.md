@@ -17,7 +17,7 @@ $ npm install
 
 ## Usage
 ```bash
-$ node controllers/hanvi.js
+$ node hanvi.js
 Listening, press Ctrl+C to stop.
 Transcription: 좋은 아침입니다
 Transcription:  음성인식을 테스트 중입니다
