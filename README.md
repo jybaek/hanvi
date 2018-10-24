@@ -1,3 +1,9 @@
+
+
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+![node](https://img.shields.io/badge/node-6.15.x-brightgreen.svg)
+![node](https://img.shields.io/badge/node-9.4.x-brightgreen.svg)
+
 # hanvi project
 AI( Artificial Intelligent ) Speaker
 
