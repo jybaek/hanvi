@@ -1,10 +1,11 @@
 {
   "name": "hanvi",
   "version": "1.0.0",
-  "description": "",
+  "description": "AI( Artificial Intelligent ) Speaker",
   "main": "index.js",
   "dependencies": {
     "@google-cloud/speech": "^2.0.0",
+    "@google-cloud/text-to-speech": "^0.3.0",
     "node-record-lpcm16": "^0.3.1"
   },
   "devDependencies": {},
@@ -16,8 +17,8 @@
     "url": "git+https://github.com/jybaek/hanvi.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Jaeyeon Baek <oops.jybaek@gmail.com> (https://github.com/jybaek/)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jybaek/hanvi/issues"
   },

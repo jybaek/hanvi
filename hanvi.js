@@ -1,3 +1,3 @@
-const hanvi = require( './controllers/hanvi.js' );
+const hanvi = require( './controllers/stt.js' );
 
 hanvi.speaker();
