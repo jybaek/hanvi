@@ -30,6 +30,10 @@ Transcription:  음성인식을 테스트 중입니다
 Transcription:  생각보다 잘 됩니다
 ```
 
+## reference
+  - https://github.com/googleapis/nodejs-speech
+  - https://github.com/googleapis/nodejs-text-to-speech
+
 ## TODO
   - [ ] Fixed to respond only when calling `hanvi`
   - [ ] Analyzes the voice and returns the desired answer in `TTS( text to speech )`.
