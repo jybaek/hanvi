@@ -6,10 +6,7 @@ const textToSpeech = require('@google-cloud/text-to-speech');
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
 
-// The text to synthesize
-const text = '안녕하세요. 반갑습니다!';
-
-exports.speaker = (text) =>
+exports.speaker = (text /* The text to synthesize */) =>
 {
   // Construct the request
   const request = {
