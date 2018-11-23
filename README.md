@@ -5,12 +5,31 @@
 ![node](https://img.shields.io/badge/node-9.4.x-brightgreen.svg)
 
 # hanvi project
-AI( Artificial Intelligent ) Speaker
+> AI( Artificial Intelligent ) Speaker. 
+
+Listen to my voice and reinvent it with a new voice. In the future, Natural Language Processing(NLP) should be possible.
 
 ## Prerequisite
 ### Authentication
 ```bash
 $ gcloud auth application-default login
+```
+
+### Error
+If the following error is found when running, the API key is missing. Download the API key as a json file as described [here](https://cloud.google.com/docs/authentication/getting-started#auth-cloud-implicit-nodejs). You must also specify the path to the file as an environment variable.
+```bash
+ERROR: { Error: 7 PERMISSION_DENIED: Your application has authenticated using end user credentials from the Google Cloud SDK or Google Cloud Shell which are not supported by the texttospeech.googleapis.com. We recommend that most server applications use service accounts instead. For more information about service accounts and how to use them in your application, see https://cloud.google.com/docs/authentication/.
+    at Object.exports.createStatusError (/Users/caley/hanvi/node_modules/grpc/src/common.js:87:15)
+    at Object.onReceiveStatus (/Users/caley/hanvi/node_modules/grpc/src/client_interceptors.js:1188:28)
+    at InterceptingListener._callNext (/Users/caley/hanvi/node_modules/grpc/src/client_interceptors.js:564:42)
+    at InterceptingListener.onReceiveStatus (/Users/caley/hanvi/node_modules/grpc/src/client_interceptors.js:614:8)
+    at callback (/Users/caley/hanvi/node_modules/grpc/src/client_interceptors.js:841:24)
+  code: 7,
+  metadata: Metadata { _internal_repr: {} },
+  details:
+   'Your application has authenticated using end user credentials from the Google Cloud SDK or Google Cloud Shell which are not supported by the texttospeech.googleapis.com. We recommend that most server applications use service accounts instead. For more information about service accounts and how to use them in your application, see https://cloud.google.com/docs/authentication/.',
+  note:
+   'Exception occurred in retry method that was not classified as transient' }
 ```
 
 ### Install Dependencies
@@ -26,9 +45,13 @@ $ npm install
 $ node hanvi.js
 Listening, press Ctrl+C to stop.
 Transcription: 좋은 아침입니다
+Audio content written to file: output.mp3
 Transcription:  음성인식을 테스트 중입니다
+Audio content written to file: output.mp3
 Transcription:  생각보다 잘 됩니다
+Audio content written to file: output.mp3
 ```
+Currently, the recognized voice is _ping/pong_ and saved as `output.mp3` file. In future, it will be added the function to output directly through the speaker.
 
 ## reference
   - https://github.com/googleapis/nodejs-speech
