@@ -55,7 +55,7 @@ Audio content written to file: output.mp3
 ```
 Currently, the recognized voice is _ping/pong_ and saved as `output.mp3` file. 
 In future, it will be added the function to output directly through the speaker.
-[Here](./sampleAudio/output.mp3) is a sample file.
+Check the audio samples in the [sampleAudio](./sampleAudio/) directory.
 
 ## reference
   - https://github.com/googleapis/nodejs-speech
