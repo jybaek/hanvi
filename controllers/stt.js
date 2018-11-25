@@ -32,6 +32,8 @@ exports.speaker = () =>
     .on('data', data => {
       if (data.results[0] && data.results[0].alternatives[0]) {
         console.log(`Transcription: ${data.results[0].alternatives[0].transcript}`);
+
+        // XXX. If you do not want to output speakers, please comment here.
         calltts(data);
       } 
       else {
