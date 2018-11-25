@@ -3,6 +3,9 @@ const fs = require('fs');
 // Imports the Google Cloud client library
 const textToSpeech = require('@google-cloud/text-to-speech');
 
+// Imports the play-sound library
+const player = require('play-sound')(opts = {})
+
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
 
@@ -30,7 +33,14 @@ exports.speaker = (text /* The text to synthesize */) =>
         console.error('ERROR:', err);
         return;
       }
-      console.log('Audio content written to file: output.mp3');
+
+      //console.log('Audio content written to file: output.mp3');
+      player.play('output.mp3', function(err) {
+        if (err) {
+          console.error('ERROR:', err);
+          return;
+        }
+      })
     });
   });
 }
