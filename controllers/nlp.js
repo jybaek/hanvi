@@ -1,9 +1,10 @@
+const ttsConfig = require( "../config/process" ).ttsConfig;
 const tts = require('./tts');
 const youtube = require('./youtube');
 
-const calltts = (data) => 
+const calltts = (data, callback) => 
 {
-  tts.speaker(data);
+  tts.speaker(data, callback);
 }
 
 exports.analysis = (data) =>
@@ -17,11 +18,19 @@ exports.analysis = (data) =>
     shutdown = true;
   }
 
-  // XXX. If you do not want to output speakers, please comment here.
-  calltts(data);
-
-  if (shutdown) {
-    console.log(' ==> program shutdown')
-    process.exit(0);
+  // XXX. If you do not want to output speakers, Please change your settings ( config/process.js ).
+  if (!ttsConfig.useSpeaker) {
+    return;
   }
+
+  calltts(data, function(result, err) {
+    if (err) {
+      console.log(`${result}: ${err}`);
+    } else {
+      if (shutdown) {
+        console.log('\n ==> Exit the program. GoodBye !\n')
+        process.exit(0);
+      }
+    }
+  });
 }

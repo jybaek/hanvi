@@ -62,3 +62,6 @@ typings/
 
 # package-lock.json file
 package-lock.json
+
+# sample audio file
+output.mp3

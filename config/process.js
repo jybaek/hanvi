@@ -5,3 +5,7 @@ exports.audio =
     languageCode    : 'ko-KR'
 };
 
+exports.ttsConfig =
+{
+    useSpeaker      : true
+};

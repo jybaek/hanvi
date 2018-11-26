@@ -9,7 +9,7 @@ const player = require('play-sound')(opts = {})
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
 
-exports.speaker = (text /* The text to synthesize */) =>
+exports.speaker = (text /* The text to synthesize */, callback) =>
 {
   // Construct the request
   const request = {
@@ -24,21 +24,23 @@ exports.speaker = (text /* The text to synthesize */) =>
   client.synthesizeSpeech(request, (err, response) => {
     if (err) {
       console.error('ERROR:', err);
-      return;
+      return callback('ERROR', err);
     }
   
     // Write the binary audio content to a local file
     fs.writeFile('output.mp3', response.audioContent, 'binary', err => {
       if (err) {
         console.error('ERROR:', err);
-        return;
+        return callback('ERROR', err);
       }
 
       //console.log('Audio content written to file: output.mp3');
       player.play('output.mp3', function(err) {
         if (err) {
           console.error('ERROR:', err);
-          return;
+          return callback('ERROR', err);
+        } else {
+          return callback('DONE', null);
         }
       })
     });
