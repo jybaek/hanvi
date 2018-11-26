@@ -1,4 +1,4 @@
-const tts = require('./tts');
+const nlp = require('./nlp');
 const record = require('node-record-lpcm16');
 
 // Imports the Google Cloud client library
@@ -18,11 +18,6 @@ const request = {
   interimResults: false, // If you want interim results, set this to true
 };
 
-const calltts = (data) => 
-{
-  tts.speaker(data.results[0].alternatives[0].transcript);
-}
-
 exports.speaker = () =>
 {
   // Create a recognize stream
@@ -33,8 +28,8 @@ exports.speaker = () =>
       if (data.results[0] && data.results[0].alternatives[0]) {
         console.log(`Transcription: ${data.results[0].alternatives[0].transcript}`);
 
-        // XXX. If you do not want to output speakers, please comment here.
-        calltts(data);
+        // Command processing by voice.
+        nlp.analysis(data.results[0].alternatives[0].transcript);
       } 
       else {
         console.log(`\n\nReached transcription time limit, press Ctrl+C\n`);
