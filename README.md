@@ -9,6 +9,9 @@
 
 Listen to my voice and reinvent it with a new voice. In the future, Natural Language Processing(NLP) should be possible.
 
+## Simple Architecture
+<img src="/arch/architecture.png" style="max-width:100%;max-height:100%;">
+
 ## Prerequisite
 ### Authentication
 ```bash
@@ -38,9 +41,6 @@ ERROR: { Error: 7 PERMISSION_DENIED: Your application has authenticated using en
 ```bash
 $ npm install
 ```
-
-## Simple Architecture
-<img src="/arch/architecture.png" style="max-width:100%;max-height:100%;">
 
 ## Usage
 ```bash
