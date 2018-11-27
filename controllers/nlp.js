@@ -1,6 +1,9 @@
 const ttsConfig = require( "../config/process" ).ttsConfig;
 const tts = require('./tts');
 const youtube = require('./youtube');
+const db = require('./firebase');
+db.settings({ timestampsInSnapshots: true });
+const docRef = db.collection('users').doc();
 
 const calltts = (data, callback) => 
 {
@@ -17,6 +20,13 @@ exports.analysis = (data) =>
     data = '프로그램을 종료합니다.';
     shutdown = true;
   }
+
+  docRef.set({
+    text: data
+  }).then(ref => {
+  }).catch(err => {
+    console.log(err);
+  });
 
   // XXX. If you do not want to output speakers, Please change your settings ( config/process.js ).
   if (!ttsConfig.useSpeaker) {
