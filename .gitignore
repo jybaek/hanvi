@@ -65,3 +65,6 @@ package-lock.json
 
 # sample audio file
 output.mp3
+
+# sample service key file
+your_service_account_key.json

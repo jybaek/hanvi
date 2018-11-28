@@ -13,6 +13,6 @@ exports.ttsConfig =
 exports.firebaseConfig =
 {
   useFirebase     : true,
-  databaseURL     : "user_database_url",
-  serviceAccount  : "../keys/your_service_account_key.json"
+  databaseURL     : "https://hanvi-223711.firebaseio.com",
+  serviceAccount  : "../your_service_account_key.json"
 };
