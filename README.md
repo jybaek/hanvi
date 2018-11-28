@@ -36,6 +36,17 @@ ERROR: { Error: 7 PERMISSION_DENIED: Your application has authenticated using en
   note:
    'Exception occurred in retry method that was not classified as transient' }
 ```
+### Firebase settings
+To use firebase, you must issue a json key and specify it in the path specified in `config/process.js`.
+Then change the setting to `true`. The default is to not use firebase.
+```bash
+exports.firebaseConfig =
+{
+  useFirebase     : true,
+  databaseURL     : "https://hanvi-223711.firebaseio.com",
+  serviceAccount  : "../your_service_account_key.json"
+};
+```
 
 ### Install Dependencies
 ```bash
