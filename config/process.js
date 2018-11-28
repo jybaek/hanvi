@@ -12,7 +12,7 @@ exports.ttsConfig =
 
 exports.firebaseConfig =
 {
-  useFirebase     : true,
+  useFirebase     : false,
   databaseURL     : "https://hanvi-223711.firebaseio.com",
   serviceAccount  : "../your_service_account_key.json"
 };
