@@ -48,6 +48,9 @@ exports.firebaseConfig =
 };
 ```
 
+In Firebases, data is stored in the following structure.
+<img src="/images/firebase_data_sample.png" style="max-width:100%;max-height:100%;">
+
 ### Install Dependencies
 ```bash
 $ npm install
