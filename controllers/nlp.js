@@ -1,9 +1,10 @@
 const ttsConfig = require( "../config/process" ).ttsConfig;
+const firebase = require('../config/process').firebaseConfig.useFirebase;
 const tts = require('./tts');
 const youtube = require('./youtube');
+const format = require('date-format');
 const db = require('./firebase');
 db.settings({ timestampsInSnapshots: true });
-const docRef = db.collection('users').doc();
 
 const calltts = (data, callback) => 
 {
@@ -21,12 +22,16 @@ exports.analysis = (data) =>
     shutdown = true;
   }
 
-  docRef.set({
-    text: data
-  }).then(ref => {
-  }).catch(err => {
-    console.log(err);
-  });
+  if (firebase) {
+    var date = format.asString('yyyy-MM-dd', new Date());
+    var docRef = db.collection(date).doc();
+    docRef.set({
+      text: data
+    }).then(ref => {
+    }).catch(err => {
+      console.log(err);
+    });
+  }
 
   // XXX. If you do not want to output speakers, Please change your settings ( config/process.js ).
   if (!ttsConfig.useSpeaker) {
