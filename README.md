@@ -49,6 +49,12 @@ Audio content written to file: output.mp3
 Transcription:  생각보다 잘 됩니다
 Audio content written to file: output.mp3
 ```
+
+You can use pm2 to make it more stable.
+```bash
+$ pm2 start hanvi.js --name "hanvi"
+```
+
 Currently, the recognized voice is _ping/pong_ and saved as `output.mp3` file. 
 In future, it will be added the function to output directly through the speaker.
 Check the audio samples in the [sampleAudio](./sampleAudio/) directory.
