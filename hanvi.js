@@ -1,3 +1,9 @@
 const hanvi = require( './controllers/stt' );
 
-hanvi.speaker();
+console.log("START PROGRAM");
+
+hanvi.speaker(function(results, error) {
+  // TODO. ...
+  console.log(error);
+  process.exit(255);
+});

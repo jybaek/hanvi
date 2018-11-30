@@ -18,12 +18,14 @@ const request = {
   interimResults: false, // If you want interim results, set this to true
 };
 
-exports.speaker = () =>
+exports.speaker = (callback) =>
 {
   // Create a recognize stream
   const recognizeStream = client
     .streamingRecognize(request)
-    .on('error', console.error)
+    .on('error', error => {
+      return callback('ERROR', error);
+    })
     .on('data', data => {
       if (data.results[0] && data.results[0].alternatives[0]) {
         console.log(`Transcription: ${data.results[0].alternatives[0].transcript}`);
