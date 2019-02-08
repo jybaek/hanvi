@@ -5,8 +5,10 @@ const firebase = require('../config/process').firebaseConfig.useFirebase;
 const tts = require('./tts');
 const youtube = require('./youtube');
 const format = require('date-format');
-const db = require('./firebase');
-db.settings({ timestampsInSnapshots: true });
+if (firebase) {
+  const db = require('./firebase');
+  db.settings({ timestampsInSnapshots: true });
+}
 
 const calltts = (data, callback) => 
 {
@@ -17,12 +19,14 @@ exports.analysis = (data) =>
 {
   var shutdown = false;
 
-  if (data.substring(0, program.name.length) != program.name) {
+  var re = new RegExp(program.name, 'g');
+  if (!data.match(re)) {
     console.log('It should work with the word [' + program.name + ']');
     return;
   }
 
-  if (data.match(/열어/g) || data.match(/켜줘/g)) {
+  if (data.match(/열어/g) || data.match(/켜줘/g) || data.match(/틀어/g)) {
+    // browser section
     if (data.match(/유튜브/g) || data.match(/유투브/g)) {
       data = '유튜브로 이동합니다.';
       opn('https://www.youtube.com/');
@@ -34,11 +38,14 @@ exports.analysis = (data) =>
       opn('https://www.github.com/');
     }
   } else if (data.match(/안녕/g)) {
-    data = '안녕하세요 주인님?';
+    // hello section
+    data = '안녕하세요?';
   } else if (data.match(/종료/g) || data.match(/중지/g) || data.match(/셧다운/g)) {
+    // terminate section
     data = '프로그램을 종료합니다.';
     shutdown = true;
   } else {
+    // unknown section
     data = '다시 한번 말씀해주세요.';
   }
 

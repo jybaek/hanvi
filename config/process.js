@@ -1,5 +1,5 @@
 exports.program = {
-  name            : '한비'
+  name            : '자비스'
 };
 
 exports.audio =

@@ -1,11 +1,13 @@
 const firebase = require('../config/process').firebaseConfig;
 const admin = require("firebase-admin");
 
-var serviceAccount = require(firebase.serviceAccount);
+if (firebase.useFirebase) {
+  var serviceAccount = require(firebase.serviceAccount);
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: firebase.databaseURL
-});
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: firebase.databaseURL
+  });
 
-module.exports = admin.firestore();
+  module.exports = admin.firestore();
+}
