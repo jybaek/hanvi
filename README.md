@@ -49,6 +49,10 @@ Audio content written to file: output.mp3
 Transcription:  생각보다 잘 됩니다
 Audio content written to file: output.mp3
 ```
+The following command is also possible. 
+  - "한비야 유튜브 열어줘"
+  - "한비야 메일 열어줘"
+
 
 You can use pm2 to make it more stable.
 ```bash
