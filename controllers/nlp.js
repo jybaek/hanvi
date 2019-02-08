@@ -1,4 +1,6 @@
+const opn = require('opn');
 const ttsConfig = require( "../config/process" ).ttsConfig;
+const program = require( "../config/process" ).program;
 const firebase = require('../config/process').firebaseConfig.useFirebase;
 const tts = require('./tts');
 const youtube = require('./youtube');
@@ -15,11 +17,29 @@ exports.analysis = (data) =>
 {
   var shutdown = false;
 
-  // Add a condition
-  // TODO. For now, this is only an `if else`, but we have to do something else in the future.
-  if (data.match(/종료/g) || data.match(/중지/g) || data.match(/셧다운/g)) {
+  if (data.substring(0, program.name.length) != program.name) {
+    console.log('It should work with the word [' + program.name + ']');
+    return;
+  }
+
+  if (data.match(/열어/g) || data.match(/켜줘/g)) {
+    if (data.match(/유튜브/g) || data.match(/유투브/g)) {
+      data = '유튜브로 이동합니다.';
+      opn('https://www.youtube.com/');
+    } else if (data.match(/메일/g)) {
+      data = '메일함으로 이동합니다.';
+      opn('https://www.gmail.com/');
+    } else if (data.match(/깃헙/g)) {
+      data = '깃헙으로 이동합니다.';
+      opn('https://www.github.com/');
+    }
+  } else if (data.match(/안녕/g)) {
+    data = '안녕하세요 주인님?';
+  } else if (data.match(/종료/g) || data.match(/중지/g) || data.match(/셧다운/g)) {
     data = '프로그램을 종료합니다.';
     shutdown = true;
+  } else {
+    data = '다시 한번 말씀해주세요.';
   }
 
   if (firebase) {

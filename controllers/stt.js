@@ -20,6 +20,26 @@ const request = {
 
 exports.speaker = (callback) =>
 {
+  /*
+  setTimeout(() => {
+    var testMessage = '한비 유튜브 켜줘';
+    console.log('#1 testMessage: ', testMessage);
+    nlp.analysis(testMessage);
+  }, 0);
+
+  setTimeout(() => {
+    var testMessage = '한비야, 메일 열어줘';
+    console.log('#2 testMessage: ', testMessage);
+    nlp.analysis(testMessage);
+  }, 5000);
+
+  setTimeout(() => {
+    var testMessage = '한비 안녕';
+    console.log('#2 testMessage: ', testMessage);
+    nlp.analysis(testMessage);
+  }, 10000);
+  */
+
   // Create a recognize stream
   const recognizeStream = client
     .streamingRecognize(request)

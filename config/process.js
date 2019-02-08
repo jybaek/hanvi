@@ -1,3 +1,7 @@
+exports.program = {
+  name            : '한비'
+};
+
 exports.audio =
 {
   encoding        : 'LINEAR16',
