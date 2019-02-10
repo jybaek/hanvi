@@ -19,11 +19,13 @@ exports.analysis = (data) =>
 {
   var shutdown = false;
 
+  /*
   var re = new RegExp(program.name, 'g');
   if (!data.match(re)) {
     console.log('It should work with the word [' + program.name + ']');
     return;
   }
+  */
 
   if (data.match(/열어/g) || data.match(/켜줘/g) || data.match(/틀어/g)) {
     // browser section
@@ -36,6 +38,8 @@ exports.analysis = (data) =>
     } else if (data.match(/깃헙/g)) {
       data = '깃헙으로 이동합니다.';
       opn('https://www.github.com/');
+    } else {
+      data = '명령을 이해하지 못했습니다.';
     }
   } else if (data.match(/안녕/g)) {
     // hello section
